@@ -2403,6 +2403,7 @@ select.form-control-lg:not([size]):not([multiple]) {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: .25rem;
+      border: 1px solid #d2e8fd;
   transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
@@ -7377,9 +7378,10 @@ a.bg-dark:hover {
 .c-data {
   // text-align: center;
   color: #555555;
-  border-bottom: 1px solid #e8e6e6;
+  // border-bottom: 1px solid #e8e6e6;
   padding-bottom: 22px;
   font-size: 1.2rem;
+  display: inline-block;
 }
 .game-and{
      background: url(../img/and.png);

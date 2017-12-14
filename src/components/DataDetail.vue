@@ -21,15 +21,14 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
-         <!-- left   -->
-         
+         <!-- left  -->
         </header>
     <div class="container-fluid">
       <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar" >
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <!-- <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a> -->
+              <!--  <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>  -->
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
@@ -48,7 +47,7 @@
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
               <a class="nav-link" href="#"><span class="icon-fen3"></span>应用排名</a>
-            </li>
+            </li> 
             <li class="nav-item">
               <a class="nav-link" href="#"><span class="icon-fen4"></span>作弊防护</a>
             </li>
@@ -59,17 +58,18 @@
               <a class="nav-link" href="#"><span class="icon-fen6"></span>EasyLink</a>
             </li>
           </ul>
-
+ 
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
               <a class="nav-link" href="#"><span class="icon-fen7"></span>产品设置</a>
             </li>
-           
           </ul>
-        </nav>
-
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-          <h1>仪表盘</h1>
+        </nav>  
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" >
+          <div class="tuiguang-title" style="color: rgb(24, 80, 134);font-size: 19px;margin-bottom: 10px;">推广活动</div>
+          <div class="lines"></div>
+          <div class="tuiguang"><button type="button" class="btn btn-primary bt-md"><router-link to="/data-Exend">+  新建推广活动</router-link> </button></div>
+          <div class="tuiguang-search"><input type="text" placeholder="输入关键字进行检索" class="search"></div>
           <section class="row text-center placeholders">
             <!-- <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
@@ -97,136 +97,153 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>名称</th>
+                  <th>展示</th>
+                  <th>点击</th>
+                  <th>点击率</th>
+                  <th>排重点击</th>
+                  <th>激活</th>
+                  
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>1,001</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,001</td>
                   <td>Lorem</td>
                   <td>ipsum</td>
                   <td>dolor</td>
                   <td>sit</td>
+                  <td>sit</td>
+
                 </tr>
                 <tr>
-                  <td>1,002</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,002</td>
                   <td>amet</td>
                   <td>consectetur</td>
                   <td>adipiscing</td>
                   <td>elit</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,003</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,003</td>
                   <td>Integer</td>
                   <td>nec</td>
                   <td>odio</td>
                   <td>Praesent</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,003</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,003</td>
                   <td>libero</td>
                   <td>Sed</td>
                   <td>cursus</td>
                   <td>ante</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,004</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,004</td>
                   <td>dapibus</td>
                   <td>diam</td> 
                   <td>Sed</td>
                   <td>nisi</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,005</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,005</td>
                   <td>Nulla</td>
                   <td>quis</td>
                   <td>sem</td>
                   <td>at</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,006</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,006</td>
                   <td>nibh</td>
                   <td>elementum</td>
                   <td>imperdiet</td>
                   <td>Duis</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,007</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,007</td>
                   <td>sagittis</td>
                   <td>ipsum</td>
                   <td>Praesent</td>
                   <td>mauris</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,008</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,008</td>
                   <td>Fusce</td>
                   <td>nec</td>
                   <td>tellus</td>
                   <td>sed</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,009</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,009</td>
                   <td>augue</td>
                   <td>semper</td>
                   <td>porta</td>
                   <td>Mauris</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,010</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,010</td>
                   <td>massa</td>
                   <td>Vestibulum</td>
                   <td>lacinia</td>
                   <td>arcu</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,011</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,011</td>
                   <td>eget</td>
                   <td>nulla</td>
                   <td>Class</td>
                   <td>aptent</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,012</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,012</td>
                   <td>taciti</td>
                   <td>sociosqu</td>
                   <td>ad</td>
                   <td>litora</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,013</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,013</td>
                   <td>torquent</td>
                   <td>per</td>
                   <td>conubia</td>
                   <td>nostra</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,014</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,014</td>
                   <td>per</td>
                   <td>inceptos</td>
                   <td>himenaeos</td>
                   <td>Curabitur</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
-                  <td>1,015</td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,015</td>
                   <td>sodales</td>
                   <td>ligula</td>
                   <td>in</td>
                   <td>libero</td>
+                  <td>sit</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </main>
       </div>
-    </div>
- 
+    </div> 
 	</div>
 </template>
-
 <script>
 export default {
   name: 'heyanfang',
