@@ -11,7 +11,7 @@
        <div class="right">
          <div class="touxinag-set"></div>
              <span class="people-set"><span>{{value}}</span> </span>
-             <div style="color:rgb(88, 162, 252); cursor:pointer;">退出</div>
+             <div style="color:rgb(88, 162, 252); cursor:pointer;" @click="exitSys();">退出</div>
        </div>
        <!-- <form class="forminline mt-2 mt-md-0" style="margin-right: 4rem;">
             <div class="touxinag-set"></div>
@@ -100,16 +100,18 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>游戏*</th>
-                  <th>设备激活</th>
-                  <th>新增账号</th>
-                  <th>活跃账户</th>
-                  <th>收入</th>
+                  <th>游戏名称</th>
+                  <th>应用平台</th>
+                  <th>应用类别</th>
+                  <th>排重点击</th>
+                  <th>激活率</th>
+                  <th>自然激活</th>
+                  <th>激活总量</th>
                   <th>操作</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+               <!--  <tr>
                   <td>
                     <router-link to="/data-Detail" style="color:#707787;"><img src="https://www.talkingdata.com/game/v3/images/default-logo.png" alt="photo" class="game-p"></router-link>
                     <span class="game-name">
@@ -125,20 +127,23 @@
                    <button type="button" class="btn btn-default bt-md">修改</button>  
                    <button type="button" class="btn btn-default bt-md">删除</button>
                  </td>
-                </tr>
-                
-                <!--<tr v-for="item in listData">
-                  <td><img src="https://www.talkingdata.com/game/v3/images/default-logo.png" alt="photo" class="game-p">
-                  	<span class="game-name"><router-link to="/data-Detail" style="color:#707787;"> {{item.gameName}} </router-link>  </span>
-                  	<a href="javascript:;" class="game-and"> </a>
-                  	<a href="javascript:;" class="game-ios"></a>
-                  </td>
-                  <td> 111 </td>
-                  <td>222 </td>
-                  <td>33</td>
-                  <td> 44</td>
-                  <td><button>5</button></td> 
                 </tr> -->
+                
+                <tr v-for="item in listData">
+                  <td><img src="https://www.talkingdata.com/game/v3/images/default-logo.png" alt="photo" class="game-p">
+                  	<span class="game-name"><router-link to="/data-Detail" style="color:#707787;"> {{item.productName}} </router-link>  </span>
+                  	<!-- <a href="javascript:;" class="game-and"> </a>
+                  	<a href="javascript:;" class="game-ios"></a> -->
+                  </td>
+                  <td  v-bind:class="{ 'class-a': isA, 'class-b': isB,'class-c':isC }"> <!-- {{item.platform}}  --></td>
+                  <td>{{item.type}} </td>
+                  <td>{{item.clickNoRepetition}}</td>
+                  <td>{{item.activeRate}}</td>
+                  <td> {{item.natureActive}}</td>
+                  <td>{{item.amountActive}}</td>
+                  <td><button type="button" class="btn btn-default bt-md">修改</button>  
+                   <button type="button" class="btn btn-default bt-md">删除</button></td> 
+                </tr> 
               </tbody>
             </table>
           </div>
@@ -259,7 +264,10 @@ var allURL="http://games.hoolai.com/cms/?json=get_category_posts&cat=245&include
 		data(){
 			return{
              listData: '',
-             value:0
+             value:0,
+             isB:0,
+             isA:0,
+             isC:0
 			}
 		},
     created: function() {
@@ -271,12 +279,21 @@ var allURL="http://games.hoolai.com/cms/?json=get_category_posts&cat=245&include
           initData:function(){
           	var _self = this;
             $.ajax({
-                type: 'GET',
-                // url:allURL, 
-                url: urlfront + "productQuery",
+                type: 'GET', 
+                url: serverFront + "productQuery",
+                headers:{
+
+                },
+                data:{
+                  "pageSize":10,
+                  "pageNo":1
+                   // "productName":'ios',
+                },
                 success:function(res) {
+                  // debugger
                    var data= JSON.parse(res);
                 	 _self.listData=data.rows;
+                   _self.getPathfrom(data)
                     // _self.listData = JSON.stringify(data.posts);
                     // console.log(_self.listData)
                 }
@@ -308,8 +325,49 @@ var allURL="http://games.hoolai.com/cms/?json=get_category_posts&cat=245&include
      //        });
 		 },
         getUser:function(){
-          var self=this;
-           self.value = sessionStorage.getItem("key"); 
+          var self = this;
+          self.value = sessionStorage.getItem("key"); 
+        },
+        getPathfrom:function(data){
+        for(var i=0;i < data.rows.length;i++){
+            var pathfrom = data.rows[i].platform;
+            if(pathfrom==0){
+              this.isA=1;
+
+            }
+            else if(pathfrom == 1){
+              this.isB=1;
+
+            }else if(pathfrom == 2){
+              this.isC=1;
+            }
+        }
+      
+        },
+        exitSys:function(){
+             var kys = sessionStorage.getItem("key"); 
+            $.ajax({
+                type: 'GET', 
+                url: serverFront + "loginOut",
+                data:{
+                  "registEmail": sessionStorage.getItem("key")
+                
+                   // "productName":'ios',
+                },
+                success:function(res) {
+                  debugger
+                   if(res.success==0){
+                   var msss=JSON.parse(res)
+                     // sessionStorage.removeItem("key"); 
+                   alert(msss)
+                     // location.href="/";
+                   }
+                   // _self.listData=data.rows;
+                   // _self.getPathfrom(data)
+                    // _self.listData = JSON.stringify(data.posts);
+                    // console.log(_self.listData)
+                }
+            });
         }
 
 		},

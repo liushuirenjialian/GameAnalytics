@@ -1240,3 +1240,9 @@ select {
     padding-left: 13px;
     outline: none;
 }
+.class-b{
+  width:30px;
+  height: 25px;
+  background:url(../img/and.png) no-repeat;
+      display: inline-block;
+}
