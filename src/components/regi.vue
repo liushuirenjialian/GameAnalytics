@@ -10,7 +10,7 @@
 						<tr>
 							<td>
 								<div class="company clear">
-									<input v-model="email" class="validate[required,custom[illegalLetter],requiredcustom[noSpecialCaracters],ajax[/uileader/check/userName.do|* 昵称已存在!]]" type="text" name="email" placeholder="请输入您的邮箱"  id='nickName' autocomplete=""  maxlength="20"/>
+									<input v-model="email" class="validate[required,custom[illegalLetter],requiredcustom[noSpecialCaracters],ajax[/uileader/check/userName.do|* 昵称已存在!]]" type="text" name="email" placeholder="请输入您的邮箱"  id='nickName' autocomplete=""  maxlength="50"/>
 									<div class="validation_info"></div>
 									<div class="details">
 										<i></i>
@@ -25,7 +25,7 @@
 							<td class="lable_name"><span>设置密码 6~20个字符：</span></td>
 							<td>
 								<div class="pas clear">
-									<input v-model="pass" class="validate[required,length[6,15]]" type="password" name="RegisterPwd"  placeholder="设置密码 6~15个字符" watermark="" id="RegisterPwd" autocomplete="off" maxlength="20"/>
+									<input v-model="pass" class="validate[required,length[6,15]]" type="password" name="RegisterPwd"  placeholder="设置密码 6~15个字符" watermark="" id="RegisterPwd" autocomplete="off" maxlength="30"/>
 									<div class="validation_info"></div>
 								</div>
 							</td>
@@ -55,7 +55,7 @@
 		            </div>
 				</form>
 			 
-				<div class="login_info" style="display:block;"></div> 
+			<div class="login_info" style="display:block;"></div> 
 			</div>
 			<!--背景图-->
 			 
@@ -68,9 +68,9 @@
 </template>
 <script>
  
- var urlfront="http://192.168.15.101:8080/";
- var newFront="http://192.168.15.101:8080/dataservice/";
- var serverFront="http://188.188.0.116:8080/dataservice/";
+ // var urlfront="http://192.168.15.101:8080/";
+ // var newFront="http://192.168.15.101:8080/dataservice/";
+ // var serverFront="http://188.188.0.116:8080/dataservice/";
 export default {
   name: 'heyanfang',
   data () {
@@ -152,14 +152,7 @@ export default {
            return true;
  
      }
-     
-
-    //  function ismail(obj){  
-    //   var reg=/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;  
-    //   if(!reg.test(obj.value)){  
-    //     alert("请正确填写邮箱！");  
-    //   }  
-    // }  
+   
     }
 }
 </script>

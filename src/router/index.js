@@ -6,7 +6,7 @@ import DataDetail from '@/components/DataDetail'
 import regi from '@/components/regi'
 import Rebuilt from '@/components/newBuilt'
 import Extend from '@/components/newExend'
- 
+import modifylist from '@/components/modifylist'
 Vue.use(Router)
 
 export default new Router({ 
@@ -41,6 +41,10 @@ export default new Router({
       name:'newExend',
       component:Extend
     }
-
+    ,{
+      path:'/data-modify',
+      name:'modifyData',
+      component:modifylist,
+    }
   ]
 })

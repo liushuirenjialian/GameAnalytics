@@ -1,34 +1,26 @@
 <template>
 	<div class="bg-set">
-	  <header class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+         <header class="navbar  navbar-dark fixed-top bg-dark">
        <div class="line">
-        <a class="navbar-brand" href="/"> 
-         <img src="static/img/logo.png" alt="img">
-        </a>
+        <a class="navbar-brand" href="javascript:;"> 
+         <img src="static/img/logo.png" alt="">
+        </a> 
+  
+        <p style="display:none;">产品id：{{this.$route.query.productId}}//{{this.$route.query.platform}}</p>
+        <router-link to='/data-center'>数据中心</router-link>
        </div>
-       
-        <button  @click="sidebarC()" class="navbar-toggler  d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">数据监测 <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-         <!-- left  -->
+       <div class="right">
+         <div class="touxinag-set"></div>
+             <span class="people-set"><span>{{value}}</span> </span>
+            <!-- <a href="" onclick="javascript:location.replace('data-Reg');   event.returnValue=false;"  @click="exitSys();">安全退出</a> -->
+             <div style="color:rgb(88, 162, 252); cursor:pointer;" @click="exitSys();">退出</div>
+       </div>
         </header>
     <div class="container-fluid">
       <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar" >
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <!--  <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>  -->
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
@@ -67,33 +59,12 @@
         </nav>  
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" >
           <div class="tuiguang-title" style="color: rgb(24, 80, 134);font-size: 19px;margin-bottom: 10px;">推广活动</div>
-          <div class="lines"></div>
-          <div class="tuiguang"><button type="button" class="btn btn-primary bt-md"><router-link to="/data-Exend">+  新建推广活动</router-link> </button></div>
+          <div class="lines"></div> 
+          <div class="tuiguang"><button type="button" class="btn btn-primary bt-md"><router-link :to="{path: '/data-Exend?productId=' + this.$route.query.productId+'&platform='+this.$route.query.platform}">+  新建推广活动</router-link> </button></div>
           <div class="tuiguang-search"><input type="text" placeholder="输入关键字进行检索" class="search"></div>
           <section class="row text-center placeholders">
-            <!-- <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <div class="text-muted">Something else</div>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div> -->
-            <!-- <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div> -->
           </section>
-          <!-- <h2>Section title</h2> -->
-          <div class="table-responsive">
+           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -103,138 +74,16 @@
                   <th>点击率</th>
                   <th>排重点击</th>
                   <th>激活</th>
-                  
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                  <td>sit</td>
-
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td> 
-                  <td>Sed</td>
-                  <td>nisi</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td><span class="star"><img src="static/img/star.png"alt=""></span>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                  <td>sit</td>
+                <tr v-for="list in listData">
+                  <td><span class="star"><img src="static/img/star.png"alt="">{{list.activiteName}}</span></td>
+                  <td>{{list.showCountValue}}</td>
+                  <td>{{list.clickCount}}</td>
+                  <td>{{list.clickRate}}</td>
+                  <td>{{list.clickCountNoRepeat}}</td>
+                  <td>{{list.activateCount}}</td>
                 </tr>
               </tbody>
             </table>
@@ -245,23 +94,74 @@
 	</div>
 </template>
 <script>
+// var serverFront="http://188.188.0.116:8080/dataservice/";  
+
 export default {
   name: 'heyanfang',
-  data () {
+  data ( ) {
     return {
-      msg: 'Welcome to Your Vue.js App!heyanfang',
-     
-    }
+       listData: '',
+       id:'',
+       platform:''
+     }
   },
+   created: function() {
+      this.getUser();
+      this.getActiInit();
+      // this.initData();
+      var platform= this.$route.query.platform;
+      console.log('当前platform:'+platform)
+     },
   methods:{
     sidebarC:function() {
       $('.d-none').show();
-       // this.cebianlan=true;
-    },
+     },
      sidebarR:function() {
       $('.d-none').hide();
-       // this.cebianlan=true;
-    }
+     },
+    getActiInit:function(){
+     var _self = this;
+     var id=_self.$route.query.productId;
+            $.ajax({
+                type: 'GET', 
+                url: serverFront + "activiteQuery",
+                data:{
+                  // "activiteGroupIds":10,
+                  // "ChannelIds":1
+                  //  "platform":'ios', 
+                   "productId":id
+                },
+                success:function(res) {
+                   var data= JSON.parse(res);
+                   _self.listData=data.rows;
+                   
+                }
+            });
+    },
+    getUser:function(){
+          var self = this;
+          self.value = sessionStorage.getItem("key"); 
+    },
+   exitSys:function(){
+          var self = this;
+           var kys = sessionStorage.getItem("key"); 
+          $.ajax({
+              type: 'GET', 
+              url: serverFront + "loginOut",
+              data:{
+                "registEmail": sessionStorage.getItem("key")
+              },
+              success:function(res) {
+                 var status=JSON.parse(res);
+                 if(status.success==0){
+                   alert(status.msg);
+                 self.$router.push({ path: '/' })
+ 
+                  }
+              
+              }
+          });
+      },
   }
 }
 </script>

@@ -1934,7 +1934,7 @@ pre code {
 .table-responsive {
   display: block;
   width: 100%;
-  overflow-x: auto;
+  // overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar
 }
@@ -3013,7 +3013,7 @@ input[type=submit].btn-block {
   transition: opacity .15s linear
 }
 
-.fade.show {
+.fade.in {
   opacity: 1
 }
 
@@ -5982,7 +5982,7 @@ a.bg-danger:hover {
 }
 
 .bg-light {
-       background-color: #185086!important;
+    background-color: #185086!important;
     border-right: 1px solid rgba(0,0,0,.1);
     /* position: sticky; */
     /* top: 5px; */
@@ -5992,6 +5992,7 @@ a.bg-danger:hover {
     z-index: 1000;
     max-height: calc(100vh - 4rem);
     padding-top: 1rem;
+    min-height: 868px;
 }
 
 a.bg-light:focus,

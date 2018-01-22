@@ -37,7 +37,7 @@ textarea {
 
 input,
 textarea {
-  -webkit-appearance: none;
+  // -webkit-appearance: none;
 }
 
 html,
@@ -540,11 +540,11 @@ input:-webkit-autofill {
 }
 
 .form_win .tel {
-  background: url(user.png) no-repeat 10px center;
+  // background: url(user.png) no-repeat 10px center;
 }
 
 .form_win .pas {
-  background: url(password.png) no-repeat 10px center;
+  // background: url(password.png) no-repeat 10px center;
 }
 
 .login_win input {
@@ -1134,6 +1134,8 @@ div.right-ope {
     /* text-align: end; */
     height: 34px;
     line-height: 34px;
+    
+  position: relative;
 }
 
 .formbox .inputbox {
@@ -1200,6 +1202,7 @@ div.right-ope {
 .star img {
   width: 20px;
   height: 20px;
+  margin-right: 15px;
 }
 
 .tuiguang-search {
@@ -1240,9 +1243,87 @@ select {
     padding-left: 13px;
     outline: none;
 }
+.class-a{
+  width:30px;
+  height: 25px;
+  background:url(../img/and.png) no-repeat;
+      display: inline-block;
+}
 .class-b{
   width:30px;
   height: 25px;
   background:url(../img/and.png) no-repeat;
       display: inline-block;
+}
+// xinjian
+.apmbox label{
+     width: 107px;
+    /* text-align: end; */
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+} 
+.apmbox label input[type="checkbox"]:not(:checked), input[type="checkbox"]:checked{
+   position: absolute;
+    /* left: -9999px; */
+    top: 9px;
+    left: 44px;
+}
+.EditMo {
+    display: fixed;
+    position: fixed;
+    top: 51%;
+    left: 33%;
+    z-index: 1003;
+}
+
+ .shadow_pop {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .6;
+    -webkie-opacity: .6;
+    -moz-opacity: .6;
+    filter: alpha(opacity=60);
+    z-index: 1000;
+    top: 0;
+}
+.game-name a {
+    margin-right: 15px;
+    color: #3e4247;
+}
+.text-area{
+    display: table;
+    /* min-width: 361px; */
+    float: left;
+    border: 1px solid #dedfe5;
+    background-color: #f8f8f9;
+    font-size: 12px;
+    text-indent: 0;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px 10px;
+    line-height: 17px;
+    border-radius: 5px;
+    color: #828995;
+    word-break: break-all;
+    position: relative;
+    height: 40px;
+    width: 55%;
+}
+#jiance{
+  display: block;
+    border: 0;
+    outline: none;
+    line-height: 20px;
+    margin-top: 17px;
+    width: 100%;
+    /* padding-left: 40px; */
+    background: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #707a95;
+    float: left;
 }

@@ -1,5 +1,5 @@
 <template> 
- <!-- 新建 应用页面 -->
+ <!-- 修改 应用数据 -->
 <div class="bg-sets">
        <!-- header   -->
     <header class="navbar navbar-dark fixed-top bg-dark">
@@ -8,9 +8,10 @@
          <img src="static/img/logo.png" alt="">
         </a>
        </div>
+       
     </header>
     <div class="nav-title">
-      <ul class="nav-list"><li><router-link to='/data-center' style="color:black">数据中心</router-link></li>><li>新建应用</li>><li>新建</li></ul>
+      <ul class="nav-list"><li><router-link to='/data-center' style="color:black">数据中心</router-link></li>><li>修改数据</li>><li>修改</li></ul>
     </div>   
     <div class="rebulit-content">
       <div class="rebulit-lists">
@@ -44,7 +45,6 @@
 <script>
  // var urlfront="http://192.168.15.101:8080/dataservice/";
  // var serverFront="http://188.188.0.116:8080/dataservice/";
-
 export default {
   name: 'heyanfang',
   data () {  
@@ -76,10 +76,11 @@ export default {
                          }
                        if(status.success == 0){
                           // success
+                          debugger
                           alert('您已成功添加！');
+                          // location.href="/#/data-center";
                            _self.$router.push({ path: 'data-center' })
 
-                          // location.href="/#/data-center";
                             // _self.$router.go({ name: 'DataList' });
  
                          } 
