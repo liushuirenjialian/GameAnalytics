@@ -5,7 +5,6 @@
         <a class="navbar-brand" href="javascript:;"> 
          <img src="static/img/logo.png" alt="">
         </a> 
-  
         <p style="display:none;">产品id：{{this.$route.query.productId}}//{{this.$route.query.platform}}</p>
         <router-link to='/data-center'>数据中心</router-link>
        </div>
@@ -35,7 +34,6 @@
               <a class="nav-link" href="#"><span class="icon-fen2"></span>分群分析</a>
             </li>
           </ul>
-
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
               <a class="nav-link" href="#"><span class="icon-fen3"></span>应用排名</a>
@@ -78,7 +76,7 @@
               </thead>
               <tbody>
                 <tr v-for="list in listData">
-                  <td><span class="star"><img src="static/img/star.png"alt="">{{list.activiteName}}</span></td>
+                  <td><span class="star"><img src="static/img/star.png"alt=""> <router-link :to="{path: '/data-modifyAci?actId=' + list.activiteId+'&productId='+ pId+'&platform='+platform}">{{list.activiteName}}</router-link></span></td>
                   <td>{{list.showCountValue}}</td>
                   <td>{{list.clickCount}}</td>
                   <td>{{list.clickRate}}</td>
@@ -95,14 +93,16 @@
 </template>
 <script>
 // var serverFront="http://188.188.0.116:8080/dataservice/";  
-
+//  
 export default {
   name: 'heyanfang',
   data ( ) {
     return {
        listData: '',
        id:'',
-       platform:''
+       platform:'',
+       pId: this.$route.query.productId,
+       platform:this.$route.query.platform
      }
   },
    created: function() {
@@ -165,3 +165,8 @@ export default {
   }
 }
 </script>
+<style>
+  span a{
+    color:#808080;
+  }
+</style>

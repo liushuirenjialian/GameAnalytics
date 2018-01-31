@@ -7,10 +7,12 @@
         <a class="navbar-brand" href="/"> 
          <img src="static/img/logo.png" alt="">
         </a>
+        <!-- <router-link to='/data-detail'>活动中心</router-link></li> -->
        </div>
     </header>
     <div class="nav-title">
-      <ul class="nav-list"><li>活动中心</li>><li> 推广活动 </li>><li>新建推广活动</li></ul>
+      <!-- 加上id  -->
+      <ul class="nav-list"><li><router-link :to="{path: '/data-Detail?productId=' + this.pId+'&platform='+this.platform}" >活动中心</router-link></li>><li>新建推广活动</li></ul>
     </div>   
     <div class="rebulit-content">
       <div class="rebulit-lists">
@@ -82,25 +84,29 @@
                     <!-- <input placeholder="http://test.com" type="tel" class="checkCode" v-model="jiance" v-bind:text="dianji"/>  -->
                 </div>
             </div>
-              <div class="formbox clearfix">
+           <div class="formbox clearfix">
                 <label class="fl-l">曝光监测链接</label>
                 <div class="inputbox">
                    <div class="text-area" v-model="baoguang">{{baoguang}}</div>
                 </div>
             </div>
+           <div class="formbox clearfix">
+                <label class="fl-l">加密密钥</label>
+                <div class="inputbox">
+                    <input placeholder="请输入加密密钥" type="tel" class="checkCode" v-model="md5key"/>
+                </div>
+          </div>
+           <!--  <div class="frombox clearfix">
+              <label for="f1-1">加密密钥</label>
+            </div>-->
             <div class="formbox">
-              <input type="submit" class="submit" placeholder="保存" @click="acTsave()" >
-            </div>
+              <input type="submit" class="submit" placeholder="请输入加密密钥" @click="acTsave()" >
+            </div> 
       </div>
     </div>  
     </div>
 </template>
-
 <script>
- // var basePath = 'https://account.talkingdata.com:443';
-/* var urlfront="http://192.168.15.101:8080/dataservice/";
- var serverFront="http://188.188.0.116:8080/dataservice/";
-*/
 export default {
   name: 'heyanfang',
   data () {  
@@ -124,7 +130,10 @@ export default {
      baoguang:'',
      pathform:'',
      ProductIdd:'',
-     id:''
+     id:'',
+     md5key:'',
+     pId: this.$route.query.productId,
+     platform:this.$route.query.platform
     }
   },
     created: function() {
@@ -138,8 +147,7 @@ export default {
         var vm = this;
         var id=vm.$route.query.platform;
                // var id=vm.$route.query.productId;
-
-               console.log(id)
+        console.log(id)
 
        $.ajax({
               type: 'GET', 
@@ -156,10 +164,9 @@ export default {
                 
             });
       },
-       
        acTsave:function () {
          var _self = this;
-         var  pubData = {};
+         var  pubData  = {};
          var ProductIdd=_self.$route.query.productId;
          var platform=_self.$route.query.platform;
          console.log('platform'+platform)
@@ -173,9 +180,10 @@ export default {
           pubData.posterPecks =_self.geshi;
           pubData.activiteGroup = _self.activity;
           pubData.eventId =_self.huidiao;
-          pubData.clickMonitorUrl =_self.dianji ;
+          pubData.clickMonitorUrl =_self.dianji;
           pubData.showMonitorUrl =_self.baoguang;
-
+          //新增密钥
+          pubData.md5key=_self.md5key;
           // if(data.channelId) 
               $.ajax({
               type: 'GET', 
@@ -234,11 +242,15 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/*import 'static/styles/auth-e6a436ad15.css'*/
-#app{
-    /*width: 100%;*/
+
+
+li a {
+  color:#0b62b5;
+}
+li a:hover{
+  color:#0c86fb;
+  text-decoration: none;
 }
  
 </style>

@@ -121,7 +121,6 @@
                 type: 'GET', 
                 url: serverFront + "productQuery",
                 headers:{
-
                 },
                 data:{
                   "pageSize":10,
