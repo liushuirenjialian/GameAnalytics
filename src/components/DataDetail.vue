@@ -12,7 +12,7 @@
          <div class="touxinag-set"></div>
              <span class="people-set"><span>{{value}}</span> </span>
             <!-- <a href="" onclick="javascript:location.replace('data-Reg');   event.returnValue=false;"  @click="exitSys();">安全退出</a> -->
-             <div style="color:rgb(88, 162, 252); cursor:pointer;" @click="exitSys();">退出</div>
+         <div style="color:rgb(88, 162, 252); cursor:pointer;" @click="exitSys();">退出</div>
        </div>
         </header>
     <div class="container-fluid">
@@ -21,31 +21,31 @@
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
             </li>
-            <li class="nav-item">
+          <!--   <li class="nav-item">
               <a class="nav-link" href="#">
                <span class="icon-fen"></span>
                推广概览
              </a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:;" @click="tuiguang()" :class="{red: tuicurr}"><span class="icon-fen1"></span>推广活动</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><span class="icon-fen1"></span>推广活动</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><span class="icon-fen2"></span>分群分析</a>
+              <a class="nav-link" href="javascript:;" @click="fenxi()" :class="{red: fenxicurr}"><span class="icon-fen2"></span>分群分析</a>
             </li>
           </ul>
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="#"><span class="icon-fen3"></span>应用排名</a>
+              <a class="nav-link" href="javascript:;" @click="qidai()"><span class="icon-fen3"></span>应用排名</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="#"><span class="icon-fen4"></span>作弊防护</a>
+              <a class="nav-link" href="javascript:;"  @click="qidai()"><span class="icon-fen4"></span>作弊防护</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><span class="icon-fen5"></span>日志导出</a>
+              <a class="nav-link" href="javascript:;"  @click="qidai()"><span class="icon-fen5"></span>日志导出</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><span class="icon-fen6"></span>EasyLink</a>
+              <a class="nav-link" href="javascript:;"  @click="qidai()"><span class="icon-fen6"></span>EasyLink</a>
             </li>
           </ul>
  
@@ -54,8 +54,18 @@
               <a class="nav-link" href="#"><span class="icon-fen7"></span>产品设置</a>
             </li>
           </ul>
-        </nav>  
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" >
+        </nav>
+          <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="fenqun" v-show="fenqun">
+          <div class="tuiguang-title" style="color: rgb(24, 80, 134);font-size: 19px;margin-bottom: 10px;">分群分析</div>
+          <div class="lines"></div> 
+          <div class="tuiguang"><button type="button" class="btn btn-primary bt-md"><router-link :to="{path: '/data-Exend?productId=' + this.$route.query.productId+'&platform='+this.$route.query.platform}">+ 分群分析</router-link> </button></div>
+          <div class="tuiguang-search"><input type="text" placeholder="输入关键字进行检索" class="search"></div>
+          <section class="row text-center placeholders">
+          </section>
+      
+        </main>  
+        <!-- 推广活动 -->
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="act" v-show="second">
           <div class="tuiguang-title" style="color: rgb(24, 80, 134);font-size: 19px;margin-bottom: 10px;">推广活动</div>
           <div class="lines"></div> 
           <div class="tuiguang"><button type="button" class="btn btn-primary bt-md"><router-link :to="{path: '/data-Exend?productId=' + this.$route.query.productId+'&platform='+this.$route.query.platform}">+  新建推广活动</router-link> </button></div>
@@ -102,7 +112,11 @@ export default {
        id:'',
        platform:'',
        pId: this.$route.query.productId,
-       platform:this.$route.query.platform
+       platform:this.$route.query.platform,
+       fenqun:false,
+       second:true,
+       tuicurr:true,
+       fenxicurr:false
      }
   },
    created: function() {
@@ -138,6 +152,25 @@ export default {
                 }
             });
     },
+    tuiguang:function(){
+       this.getActiInit();
+       console.log('success');
+       this.fenqun=false;
+       this.second=true;
+       this.tuicurr=true;
+       this.fenxicurr=false;
+     },
+     fenxi:function(){
+        console.log('success');
+       this.fenqun=true;
+       this.second=false;
+       this.tuicurr=false;
+       this.fenxicurr=true;
+
+     },
+     qidai:function(){
+       alert('敬请期待')
+     },
     getUser:function(){
           var self = this;
           self.value = sessionStorage.getItem("key"); 
@@ -168,5 +201,10 @@ export default {
 <style>
   span a{
     color:#808080;
+  }
+
+  /*click color*/
+  .red{
+        color: #3ea2f7;
   }
 </style>

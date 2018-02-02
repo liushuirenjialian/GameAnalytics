@@ -146,7 +146,7 @@ export default {
       },
        acTsave:function () {
          var  _self = this;
-         // 详情需要字段
+         // 详情需要字段 修改表单内容，vue通过？把接口值给input然后改变输入内容后能准备获取内容给后台
          var ProductIdd=_self.$route.query.productId;
          var platform=_self.$route.query.platform;
 
