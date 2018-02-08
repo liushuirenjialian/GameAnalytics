@@ -2,12 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/components/login'
 import DataList from '@/components/DataList'
-import DataDetail from '@/components/DataDetail'
+import tuiguang from '@/components/tuiguang'
 import regi from '@/components/regi'
-import Rebuilt from '@/components/newBuilt'
-import Extend from '@/components/newExend'
+// import Rebuilt from '@/components/newBuilt'
 import modifylist from '@/components/modifylist'
 import modifyAcit from '@/components/modifyactivity'
+import home from '@/components/common/Home'
  
 Vue.use(Router)
 
@@ -30,29 +30,33 @@ export default new Router({
       component:regi
     },
     {
-      path:'/data-Rebuilt',
-      name:'newBuilt',
-      component:Rebuilt
-    },
-    {
-      path:'/data-Exend',
-      name:'newExend',
-      component:Extend
-    }
-    ,{
       path:'/data-modify',
       name:'modifyData',
       component:modifylist,
     },
-    {
-      path:'/data-Detail',
-      name:'DataDetail',
-      component:DataDetail,
-     }, 
      {
         path:'/data-modifyAci',
         name:'modifyAcit',
         component:modifyAcit
+     },
+     {
+           path:'/Home',
+           component:home,
+           children:[
+              {
+                 path:'/', 
+                 component:resolve=>require(['../components/tuiguang.vue'],resolve),
+                 
+              },
+              {
+                 path:'/NullDredge',
+                 name:'NullDredge',
+                 component:resolve=>require(['../components/404.vue'],resolve),
+                 
+              }
+
+           ]
      }
   ]
+   // mode: 'history',
 })

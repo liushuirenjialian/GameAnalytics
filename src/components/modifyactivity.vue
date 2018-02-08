@@ -1,7 +1,7 @@
 <template> 
  <!-- 活动 推广页面 -->
-<div class="bg-sets">
-    <header class="navbar navbar-dark fixed-top bg-dark">
+<div class="xiugaituiguang">
+       <header class="navbar navbar-dark fixed-top bg-dark">
        <div class="line">
         <a class="navbar-brand" href="/"> 
          <img src="static/img/logo.png" alt="">
@@ -10,7 +10,7 @@
     </header>
     <div class="nav-title">
       <!-- 加上id  -->
-      <ul class="nav-list"><li><router-link :to="{path: '/data-Detail?productId=' + this.pId+'&platform='+this.platform}" >活动中心</router-link></li>><li>修改推广活动</li></ul>
+      <ul class="nav-list"><li><router-link :to="{path: '/Home?productId=' + this.pId+'&platform='+this.platform}" >活动中心</router-link></li>><li>修改推广活动</li></ul>
     </div>   
     <div class="rebulit-content">
       <div class="rebulit-lists">
@@ -86,7 +86,7 @@ export default {
   name: 'heyanfang',
   data () {  
     return {
-     listData:'',
+     listDataM:'',
      productList:'',
      product:'',
      channelList:'',
@@ -166,14 +166,14 @@ export default {
               alert(status.msg);
              }else if(status.success==0){
                alert('您已经成功修改活动！');
-                _self.$router.push({ path: 'data-Detail',query:{productId:ProductIdd,platform:platform}})
+                _self.$router.push({ path: 'Home',query:{productId:ProductIdd,platform:platform}})
               // this.$router.push({name:'DataDetail',params:{name:'xy',age:22}});
              // this.$router.push({name:'DataDetail',query:{name:'xy',age:22}});
 
              }
             }
         });
-        },
+        }
        
     }
 }
@@ -213,5 +213,18 @@ li a {
 li a:hover{
   color:#0c86fb;
   text-decoration: none;
+}
+#xiugaituiguang{
+   position: absolute;
+    top: -4px;
+    width: 96%;
+    left: 20px;
+}
+#xiugaituiguang .nav-title{
+  background-color: #f6f8fb;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #4a3939;
 }
 </style>

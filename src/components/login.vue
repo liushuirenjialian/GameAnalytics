@@ -38,8 +38,7 @@
            <div class="alert alert-success" role="alert" style="display:none;">
             <strong>邮箱或密码为空!</strong> 
             </div>
-        </form>
-              
+        </form>  
       </div>
       <!--背景图 -->
       <div class="bg_img">
@@ -53,11 +52,6 @@
 </template>
 
 <script>
- // var basePath = 'https://account.talkingdata.com:443';
- // var urlfront="http://192.168.15.101:8080/dataservice/";
- // var serverFront="http://188.188.0.116:8080/dataservice/";
-   
-
 export default {
   name: 'heyanfang',
   data () {

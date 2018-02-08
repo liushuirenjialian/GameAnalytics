@@ -7,8 +7,7 @@
         <a class="navbar-brand" href="/"> 
          <img src="static/img/logo.png" alt="">
         </a>
-       </div>
-       
+       </div> 
     </header>
     <div class="nav-title">
       <ul class="nav-list"><li><router-link to='/data-center' style="color:black">数据中心</router-link></li>><li>修改数据</li>><li>修改</li></ul>

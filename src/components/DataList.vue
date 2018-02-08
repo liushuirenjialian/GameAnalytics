@@ -1,5 +1,6 @@
 <template>
 	 <div class="bg-set">
+     <!-- <router-link :to="{path: '/home', params: {productId: 1,platform: 1}}"></router-link> -->
    	  <header class="navbar  navbar-dark fixed-top bg-dark">
        <div class="line">
         <a class="navbar-brand" href="javascript:;"> 
@@ -11,7 +12,7 @@
              <span class="people-set"><span>{{value}}</span> </span>
              <div style="color:rgb(88, 162, 252); cursor:pointer;" @click="exitSys();">退出</div>
        </div>
-        </header>
+      </header>
      <div class="container-fluid">
      	<main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
         <div class="title">
@@ -21,8 +22,7 @@
           <div class="right-ope">
             <button class="xinjian"><router-link to='/data-Rebuilt' style="color:#707787;">新建应用</router-link></button>
             <input type="text" placeholder="输关键字进行检索" class="search">
-            
-            </div> 
+          </div> 
         </div>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -40,9 +40,10 @@
                 </tr>
               </thead>
               <tbody>
+                <!-- <router-link :to="{path: '/home?productId=' + item.productId+'&platform='+item.platform}" >{{item.productName}} </router-link> -->
                 <tr v-for="(item,xh) in listData">
-                  <td><img src="https://www.talkingdata.com/game/v3/images/default-logo.png" alt="photo" class="game-p">
-                    <span class="game-name"> <router-link :to="{path: '/data-Detail?productId=' + item.productId+'&platform='+item.platform}" >{{item.productName}} </router-link> </span>
+                  <td @click="eventAdd(item.productId,item.platform)"><img src="https://www.talkingdata.com/game/v3/images/default-logo.png" alt="photo" class="game-p">
+                  <span class="game-name"><a>{{item.productName}}</a></span>
                   </td>
                   <td  v-bind:class="{ 'class-a': isA, 'class-b': isB,'class-c':isC }"></td>
                   <td>游戏</td>
@@ -91,7 +92,6 @@
 </template> 
 <script>
    // var serverFront="http://188.188.0.116:8080/dataservice/";
-
 	export default{
 		data(){
 			return{
@@ -105,7 +105,6 @@
              isshow:false,
              isshadow:false,
              productName:''
-            
 			}
 		},
     created: function() {
@@ -113,8 +112,21 @@
       this.initData();
 
     },
-
 		methods:{
+            eventAdd:function(id,pat){
+             this.$router.push({
+                            path: '/Home',
+                            query: {
+                               productId:id,
+                               platform:pat
+                            }
+                        })
+            // this.$router.push({  
+            //   name:'Home',
+            //   params:{
+            //   }
+            // })
+            },
             initData:function(){
           	var _self = this;
             $.ajax({
@@ -125,15 +137,13 @@
                 data:{
                   "pageSize":10,
                   "pageNo":1
-                   // "productName":'ios',
                 },
                 success:function(res) {
-                  // debugger
                    var data= JSON.parse(res);
                 	 _self.listData=data.rows;
                    _self.getPathfrom(data)
                     // _self.listData = JSON.stringify(data.posts);
-                    // console.log(_self.listData)
+                    // console.log(_self.listData)  
                 }
             });
 		 },
@@ -267,4 +277,6 @@
 	 
 	}
 </script>
- 
+<style>
+  
+</style> 
