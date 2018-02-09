@@ -1246,19 +1246,20 @@ select {
 .class-a{
   width:30px;
   height: 25px;
-  background:url(../img/iPhone.png) no-repeat;
+  background:url(../img/and.png) no-repeat;
       display: inline-block;
 }
 .class-b{
   width:30px;
   height: 25px;
-  background:url(../img/and.png) no-repeat;
+  background:url(../img/iPhone.png) no-repeat;
       display: inline-block;
 }
 .class-c{
   width:30px;
   height: 25px;
-  background:url(../img/iPhone.png) no-repeat;
+  background:url(../img/code.png) no-repeat;
+  background-size: contain;
       display: inline-block;
 }
 // xinjian

@@ -4,13 +4,11 @@ import login from '@/components/login'
 import DataList from '@/components/DataList'
 import tuiguang from '@/components/tuiguang'
 import regi from '@/components/regi'
-// import Rebuilt from '@/components/newBuilt'
+import Rebuilt from '@/components/newBuilt' 
 import modifylist from '@/components/modifylist'
 import modifyAcit from '@/components/modifyactivity'
 import home from '@/components/common/Home'
- 
 Vue.use(Router)
-
 export default new Router({ 
   routes: [
     {
@@ -39,6 +37,12 @@ export default new Router({
         name:'modifyAcit',
         component:modifyAcit
      },
+     {
+        path:'/data-Rebuilt',
+        name:'Rebuilt',
+        component:Rebuilt
+     },
+
      {
            path:'/Home',
            component:home,

@@ -45,7 +45,11 @@
                   <td @click="eventAdd(item.productId,item.platform)"><img src="https://www.talkingdata.com/game/v3/images/default-logo.png" alt="photo" class="game-p">
                   <span class="game-name"><a>{{item.productName}}</a></span>
                   </td>
-                  <td  v-bind:class="{ 'class-a': isA, 'class-b': isB,'class-c':isC }"></td>
+                 <td v-if="item.platform == 0":class="and"></td>
+                 <td v-if="item.platform == 1":class="ios"></td>
+                 <td v-if="item.platform == 2":class="wap"></td>
+                  <!-- <td :attr="item.platform">{{item.platform}}</td> -->
+                   <!-- v-bind:class="{ 'class-a': isA, 'class-b': isB,'class-c':isC }" -->
                   <td>游戏</td>
                   <td>{{item.productId}}</td>
                   <td>{{item.clickNoRepetition}}</td>
@@ -58,8 +62,10 @@
               </tbody>
             </table>
             <div class="EditMo" style="display:none;">
+                        <!-- <td><input type="text" class="form-control">游戏名称</td> -->
                         <td><input type="text" class="form-control" v-model="rowtemplate.productName" /></td>
                         <td><input type="text" class="form-control" v-model="rowtemplate.productId" disabled="disabled" /></td>
+                        <td><input type="text" class="form-control" v-model="rowtemplate.platform" style="display:none;"></td>
                         <td><button type="button" class="btn btn-primary" v-on:click="Save">保存</button></td>
             </div>
           </div>
@@ -104,15 +110,23 @@
              rowtemplate:[],
              isshow:false,
              isshadow:false,
-             productName:''
+             productName:'',
+             pathfromVal:'',
+             and:'class-a',
+             ios:'class-b',
+             wap:'class-c'
 			}
 		},
     created: function() {
       this.getUser();
       this.initData();
+      this.getImg();
 
     },
 		methods:{
+            getImg:function(){
+
+            },
             eventAdd:function(id,pat){
              this.$router.push({
                             path: '/Home',
@@ -141,6 +155,7 @@
                 success:function(res) {
                    var data= JSON.parse(res);
                 	 _self.listData=data.rows;
+                   debugger
                    _self.getPathfrom(data)
                     // _self.listData = JSON.stringify(data.posts);
                     // console.log(_self.listData)  
@@ -153,14 +168,14 @@
         },
         getPathfrom:function(data){
         for(var i=0;i < data.rows.length;i++){
-            var pathfrom = data.rows[i].platform;
-            if(pathfrom==0){
+            var pathfromVal = data.rows[i].platform;
+            if(pathfromVal==0){
               this.isA=1;
             }
-            else if(pathfrom == 1){
+            else if(pathfromVal == 1){
               this.isB=1;
 
-            }else if(pathfrom == 2){
+            }else if(pathfromVal == 2){
               this.isC=1;
             }
         }
@@ -222,8 +237,6 @@
                     console.log('success');
                     _self.initData();
                    }
-                    // _self.listData = JSON.stringify(data.posts);
-                    // console.log(_self.listData)
                 }
             });
             }
@@ -246,7 +259,8 @@
                      var data = {};
                       data.productName =_self.rowtemplate.productName;
                       data.productId = _self.rowtemplate.productId;
-                      data.platform = 'IOS',
+                      data.platform = _self.rowtemplate.platform;
+                      console.log(_self.platform)
                          $.ajax({
                           type: 'GET', 
                           url: serverFront + "prodctUpdate", 

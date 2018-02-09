@@ -22,9 +22,9 @@
          </div>
          <div class="formbox clearfix">
             <label class="fl-l">应用平台</label>
-            <label><input name="Fruit" type="radio" value="IOS" checked="true" />ios </label>
-            <label><input name="Fruit" type="radio" value="ANDROID" />Adnroid </label>
-            <label><input name="Fruit" type="radio" value="WAP" />网页 </label>
+            <label><input name="Fruit" type="radio" value="1" checked="true" />ios </label>
+            <label><input name="Fruit" type="radio" value="0" />Android </label>
+            <label><input name="Fruit" type="radio" value="2" />网页 </label>
          </div>
              <div class="formbox clearfix">
                 <label class="fl-l">下载地址</label>
